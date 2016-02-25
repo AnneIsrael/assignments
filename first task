@@ -1,0 +1,22 @@
+#a) scatterplot
+plot(rc$cal.age, rc$rc.age, xlim=c(0,1), ylim=c(0,1), xlab="Calibrated Age",
+ylab="Age from Radiocarbon Dating", main="Radiocarbon Dating", cex=0.5)
+
+#b) regression line 
+abline(0, 0.8735)
+
+#c) 95% confidence interval
+abline(0,0.8438, lty=2)
+abline(0,0.9031, lty=2)
+
+#d) 95% prediction interval
+a <- seq(-0.1, 1.1, length.out=100)  #because prediction bounds are not linear
+￼upper <- lower <- lines(a, lines(a,
+0.8735 * a + 0.02968 * sqrt(17.5 + a^2) 0.8735 *a - 0.02968 * sqrt(17.5 + a^2) upper, lty=3)
+lower, lty=3)
+
+#e) Shading
+triangle <- rbind(c(0,0),
+c(1.1, 0.8437 * 1.1),
+c(1.1, 0.9031 * 1.1)) polygon(triangle, lty=2, col=”grey”)
+points(rc)   # for visibility of points
