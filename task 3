@@ -1,0 +1,17 @@
+#a loop that approximates the golden ratio
+x <- 2:200
+n <- length(x)
+
+for(i in 2:n) {
+  x[i] <- (1+(1/(x[i-1])))
+} 
+ 
+x[50]
+
+#b
+for(i in 2:n) {x[i] <- (1+(1/(x[i-1])))
+  if((abs(x[i]-x[i-1]) < (1e-10)) | (i>=52))
+    break
+}  
+
+x
