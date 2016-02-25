@@ -1,0 +1,8 @@
+x <- c(1,2,7,7,7,4,5,2,4,5,4,4) run.lengths <- c()
+length <- 1
+for (i in 2:length(x)) {
+if (x[i]!=x[i-1]) {
+run.lengths <- c(run.lengths, length) length <- 0
+}
+length <- length+1 }
+max(run.lengths)
