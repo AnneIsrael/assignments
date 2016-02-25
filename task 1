@@ -19,4 +19,4 @@ lower, lty=3)
 triangle <- rbind(c(0,0),
 c(1.1, 0.8437 * 1.1),
 c(1.1, 0.9031 * 1.1)) polygon(triangle, lty=2, col=”grey”)
-points(rc)   # for visibility of points
+points(rc)   # visibility of points
