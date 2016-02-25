@@ -1,0 +1,10 @@
+X <- seq(0, 100)
+X[1]
+
+e <- c(-1,1)
+E <- sample(e,1000,replace=TRUE)
+
+for(i in 2:100) {X[i] <- X[i-1]+E[i]
+}
+
+plot(X, type="l")
