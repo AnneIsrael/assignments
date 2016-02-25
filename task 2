@@ -1,0 +1,19 @@
+#a) UK plot
+plot(EU$Year, EU$United.Kingdom, type="l", xlab="Year", ylab="per capita GDP", main="Per capita GDP in PPS (UK)")
+
+#b) coloured country plot
+range.Y <- range(EU[,-1])
+plot(EU$Year, EU$United.Kingdom, type=”n”, xlab=”Year”,
+ylab=”per␣capita␣GDP”, ylim=range.Y) for (i in 2:ncol(EU))
+lines(EU$Year, EU[,i], col=i)
+legend(”topleft”, lty=1, col=2:ncol(EU), colnames(EU)[-1])
+
+#c) normalise data
+EU.normalised <- EU
+for (i in 2:ncol(EU.normalised))
+EU.normalised[,i] <- EU.normalised[,i] / EU.normalised[6,i]
+# the function sweep is more efficiently
+
+#d) plot EU.normalised
+matplot(EU.normalised$Year, EU.normalised[,-1], col=2:ncol(EU.normalised), type=” l ”, lty=1, xlab=”Year”, ylab=”per␣capita␣GDP”)
+legend(”topleft”, lty=1, col=2:ncol(EU.normalised), colnames(EU.normalised)[-1])
